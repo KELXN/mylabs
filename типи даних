@@ -1,0 +1,16 @@
+const arr = [true, 'hello', 5, 12, -200, false, false, 'word', null, undefined, {}, [], Symbol('s'), 3.14, NaN];
+
+const typeCounts = {};
+
+for (const el of arr) {
+    let type = typeof el;
+    if (Array.isArray(el)) type = 'array';
+    else if (el === null) type = 'null';
+
+    if (!(type in typeCounts)) {
+        typeCounts[type] = 0;
+    }
+    typeCounts[type]++;
+}
+
+console.dir(typeCounts);
